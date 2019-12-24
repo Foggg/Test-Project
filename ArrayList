@@ -1,0 +1,29 @@
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        ArrayList<String> list = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        for (int i = 10; i > 0; i--) {
+            list.add(reader.readLine());
+        }
+        int globalShortIntI = 0;
+        int globalLongIntI = 0;
+        int shortInt = list.get(0).length();
+        int longInt = list.get(0).length();
+        for (int i = 0; i < list.size() ; i++) {
+            if (list.get(i).length() > longInt & list.get(i).length() > shortInt) {
+                longInt = list.get(i).length();
+                globalLongIntI = i;
+            } else if (list.get(i).length() < shortInt & list.get(i).length() < longInt) {
+                shortInt = list.get(i).length();
+                globalShortIntI = i;
+            }
+
+        }
+        if (globalLongIntI > globalShortIntI) {
+            System.out.println(list.get(globalShortIntI));
+        } else {
+            System.out.println(list.get(globalLongIntI));
+        }
+
+    }
+}
